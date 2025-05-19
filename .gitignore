@@ -1,0 +1,12 @@
+# .gitignore
+/node_modules/
+/vendor/
+/.idea/
+.DS_Store
+*.log
+*.sql
+*.zip
+/wp-assets/
+.env
+.phpunit.result.cache
+*.cache
