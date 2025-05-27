@@ -7,13 +7,13 @@ class Template_Manager {
             'coming-soon' => [
                 'id' => 'coming-soon',
                 'name' => __('Coming Soon', 'coming-sooner'),
-                'thumbnail' => COMING_SOONER_PLUGIN_URL . 'assets/images/default-coming-soon.jpg',
+                'thumbnail' => COMING_SOONER_PLUGIN_URL . 'assets/images/default-coming-soon.png',
                 'file' => 'coming-soon.php'
             ],
             'maintenance' => [
                 'id' => 'maintenance',
                 'name' => __('Maintenance Mode', 'coming-sooner'),
-                'thumbnail' => COMING_SOONER_PLUGIN_URL . 'assets/images/default-maintenance.jpg',
+                'thumbnail' => COMING_SOONER_PLUGIN_URL . 'assets/images/default-maintenance.png',
                 'file' => 'maintenance.php'
             ]
         ];
@@ -30,12 +30,12 @@ class Template_Manager {
             'posts_per_page' => -1,
             'post_status' => 'publish'
         ]);
-
+        $image_url = COMING_SOONER_PLUGIN_URL . 'assets/images/elementor.png';
         foreach ($posts as $post) {
             $templates[] = [
                 'id' => $post->ID,
                 'name' => $post->post_title,
-                'thumbnail' => get_the_post_thumbnail_url($post->ID, 'medium')
+                'thumbnail' => $image_url
             ];
         }
 

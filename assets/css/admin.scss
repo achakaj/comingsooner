@@ -58,35 +58,29 @@ input:checked + .slider:before {
 }
 
 /* Template Grid */
-.template-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.template-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.template-card.selected {
-    border-color: #2271b1;
-    box-shadow: 0 0 0 1px #2271b1;
-}
-
-.template-card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
 .template-card h3 {
     margin: 0 0 10px;
 }
 
 .create-new-template {
     margin-top: 30px;
+}
+.template-grid {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.template-card {
+    text-align: center;
+    border: 1px solid #EAEFEF;
+    border-radius: 20px;
+    padding: 20px;
+    width: 48%;
+    margin: 1%;
+    box-sizing: border-box;
+}
+
+.template-card.selected {
+    background: #EAEFEF;
 }

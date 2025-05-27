@@ -1,3 +1,5 @@
+import '../css/admin.scss';
+
 jQuery(document).ready(function ($) {
   // Toggle Coming Soon ON/OFF
   $('#coming-soon-toggle').on('change', function () {

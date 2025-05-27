@@ -19,6 +19,7 @@ class Admin {
         add_action('wp_ajax_coming_sooner_install_elementor', [$this, 'install_elementor']);
     }
 
+    
     public function add_admin_menu(): void {
         $hook = add_menu_page(
             __('ComingSooner', 'coming-sooner'),
@@ -249,14 +250,14 @@ class Admin {
 
         wp_enqueue_style(
             'coming-sooner-admin',
-            COMING_SOONER_PLUGIN_URL . 'assets/css/admin.css',
+            COMING_SOONER_PLUGIN_URL . 'assets/dist/css/admin.css',
             [],
             COMING_SOONER_VERSION
         );
 
         wp_enqueue_script(
             'coming-sooner-admin',
-            COMING_SOONER_PLUGIN_URL . 'assets/js/admin.js',
+            COMING_SOONER_PLUGIN_URL . 'assets/dist/js/admin.js',
             ['jquery', 'wp-i18n', 'updates'],
             COMING_SOONER_VERSION,
             true
