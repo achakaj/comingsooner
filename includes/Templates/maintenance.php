@@ -1,12 +1,14 @@
 <?php
 /**
- * Default coming soon template
+ * Default Maintenance Mode template
  */
-get_header('coming-sooner'); ?>
+include COMING_SOONER_PLUGIN_DIR . 'includes/Templates/coming-sooner-header.php';
+?>
 
 <div class="coming-soon-container">
+    <div class="logo-placeholder">🛠️</div>
     <h1><?php esc_html_e('Maintenance Mode', 'coming-sooner'); ?></h1>
-    <p><?php esc_html_e('Our website is under construction. Please check back later!', 'coming-sooner'); ?></p>
+    <p><?php esc_html_e('We\'re currently working on some improvements. Check back shortly!', 'coming-sooner'); ?></p>
 </div>
 
-<?php get_footer('coming-sooner'); ?>
+<?php include COMING_SOONER_PLUGIN_DIR . 'includes/Templates/coming-sooner-footer.php'; ?>

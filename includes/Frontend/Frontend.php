@@ -4,6 +4,7 @@ namespace ComingSooner\Frontend;
 class Frontend {
     public function __construct() {
         add_action('template_redirect', [$this, 'maybe_show_coming_soon_page']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_assets_frontend']);
     }
 
     public function maybe_show_coming_soon_page(): void {
@@ -50,10 +51,63 @@ class Frontend {
         }
     }
 
+
     private function render_elementor_template(int $template_id): void {
-        if (class_exists('\Elementor\Plugin')) {
-            echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($template_id);
-            exit;
+    if (class_exists('\Elementor\Plugin')) {
+        status_header(503);
+
+        // Enqueue Elementor core frontend styles and plugin styles
+        \Elementor\Plugin::instance()->frontend->enqueue_styles();
+        wp_enqueue_style('coming-sooner-frontend');
+
+        // Enqueue the Elementor template's dynamic CSS if it exists
+        $css_file = get_post_meta($template_id, '_elementor_css_file', true);
+        if ($css_file) {
+            wp_enqueue_style(
+                'elementor-template-' . $template_id,
+                $css_file,
+                ['elementor-frontend'],
+                COMING_SOONER_VERSION
+            );
         }
+
+        wp_head();
+
+        echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($template_id);
+
+        wp_footer();
+
+        exit;
     }
+}
+
+public function enqueue_assets_frontend(): void {
+    // Only enqueue if we're showing the coming soon page
+    if (!$this->should_show_coming_soon()) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'coming-sooner-frontend',
+        COMING_SOONER_PLUGIN_URL . 'assets/dist/css/frontend.css',
+        [],
+        COMING_SOONER_VERSION
+    );
+
+    wp_enqueue_script(
+        'coming-sooner-frontend',
+        COMING_SOONER_PLUGIN_URL . 'assets/dist/js/frontend.js',
+        ['jquery', 'wp-i18n', 'updates'],
+        COMING_SOONER_VERSION,
+        true
+    );
+
+    // If using Elementor, enqueue its assets
+    if (get_option('coming_sooner_template_type', 'default') === 'elementor') {
+        wp_enqueue_script('elementor-frontend');
+    }
+}
+
+
+
 }

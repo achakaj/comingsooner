@@ -49,6 +49,7 @@ private function load_dependencies(): void {
     } catch (\Exception $e) {
         add_action('admin_notices', function() use ($e) {
             echo '<div class="notice notice-error"><p>';
+            /* translators: %s: error message */
             printf(
                 __('ComingSooner initialization error: %s', 'coming-sooner'),
                 esc_html($e->getMessage())
@@ -74,14 +75,14 @@ private function load_dependencies(): void {
         // Register common styles and scripts
         wp_register_style(
             'coming-sooner-frontend',
-            COMING_SOONER_PLUGIN_URL . 'assets/css/frontend.css',
+            COMING_SOONER_PLUGIN_URL . 'assets/dist/css/frontend.css',
             [],
             COMING_SOONER_VERSION
         );
         
         wp_register_script(
             'coming-sooner-frontend',
-            COMING_SOONER_PLUGIN_URL . 'assets/js/frontend.js',
+            COMING_SOONER_PLUGIN_URL . 'assets/dist/js/frontend.js',
             ['jquery'],
             COMING_SOONER_VERSION,
             true

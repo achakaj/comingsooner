@@ -6,7 +6,6 @@ A professional Coming Soon plugin with Elementor integration for WordPress.
 
 - Multiple pre-designed templates
 - Elementor integration
-- Scheduled activation
 - Customizable design options
 
 ## Installation

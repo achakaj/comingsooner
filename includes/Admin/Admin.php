@@ -44,6 +44,7 @@ class Admin {
             if (!file_exists($file)) {
                 add_action('admin_notices', function() use ($file) {
                     echo '<div class="notice notice-error"><p>';
+                    /* translators: %s: missing file path */
                     printf(
                         __('ComingSooner: Required file missing - %s', 'coming-sooner'),
                         esc_html(str_replace(COMING_SOONER_PLUGIN_DIR, '', $file))
@@ -87,17 +88,17 @@ class Admin {
                         <?php esc_html_e('Basic Mode', 'coming-sooner'); ?>
                         <p class="description"><?php esc_html_e('Quick setup with pre-designed templates', 'coming-sooner'); ?></p>
                     </label>
-<?php if ( ! is_plugin_active( 'elementor/elementor.php' ) ) : ?>
-    <button id="install-elementor" class="button button-primary">
-        <?php esc_html_e('Install Elementor Now', 'coming-sooner'); ?>
-    </button>
-<?php else : ?>
-    <label>
-        <input type="radio" name="template_type" value="elementor" <?php checked($template_type, 'elementor'); ?>>
-        <?php esc_html_e('Elementor Mode', 'coming-sooner'); ?>
-        <p class="description"><?php esc_html_e('Advanced design with Elementor templates', 'coming-sooner'); ?></p>
-    </label>
-<?php endif; ?>
+                        <?php if ( ! is_plugin_active( 'elementor/elementor.php' ) ) : ?>
+                            <button id="install-elementor" class="button button-primary">
+                                <?php esc_html_e('Install Elementor Now', 'coming-sooner'); ?>
+                            </button>
+                        <?php else : ?>
+                            <label>
+                                <input type="radio" name="template_type" value="elementor" <?php checked($template_type, 'elementor'); ?>>
+                                <?php esc_html_e('Elementor Mode', 'coming-sooner'); ?>
+                                <p class="description"><?php esc_html_e('Advanced design with Elementor templates', 'coming-sooner'); ?></p>
+                            </label>
+                        <?php endif; ?>
                 </div>
             </div>
 
@@ -154,6 +155,17 @@ class Admin {
                     </div>
                 <?php endif; ?>
             </div>
+
+            <!-- Promo / Service Offer Card -->
+            <div class="card promo-card">
+                <h2>🚀 Need Help Building or Maintaining Your Website?</h2>
+                <p>If you’d like a professional to build your website, or need help with website maintenance, I’m here for you!</p>
+                <a href="mailto:achakaj.abdellah@gmail.com.com?subject=Website%20Help%20Request" class="button button-primary">
+                    Contact Me
+                </a>
+                <p class="description">Fast, reliable, and tailored to your needs.</p>
+            </div>
+
         </div>
         <?php
     }

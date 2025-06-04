@@ -2,11 +2,14 @@
 /**
  * Default coming soon template
  */
-get_header('coming-sooner'); ?>
+
+include COMING_SOONER_PLUGIN_DIR . 'includes/Templates/coming-sooner-header.php';
+?>
 
 <div class="coming-soon-container">
-    <h1><?php esc_html_e('Coming Soon', 'coming-sooner'); ?></h1>
-    <p><?php esc_html_e('Our website is under construction. Please check back later!', 'coming-sooner'); ?></p>
+    <div class="logo-placeholder">🚀</div>
+    <h1><?php esc_html_e('Something Awesome is Coming!', 'coming-sooner'); ?></h1>
+    <p><?php esc_html_e('We’re working hard to launch our new website. Stay tuned!', 'coming-sooner'); ?></p>
 </div>
 
-<?php get_footer('coming-sooner'); ?>
+<?php include COMING_SOONER_PLUGIN_DIR . 'includes/Templates/coming-sooner-footer.php'; ?>

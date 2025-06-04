@@ -7,7 +7,7 @@
  * Author: Abdel Achakaj
  * Author URI: https://achakaj.com
  * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: coming-sooner
  * Domain Path: /languages
  */
@@ -25,6 +25,7 @@ define('COMING_SOONER_BASENAME', plugin_basename(__FILE__));
 if (version_compare(PHP_VERSION, '8.0', '<')) {
     add_action('admin_notices', function() {
         echo '<div class="notice notice-error"><p>';
+        /* translators: %s: current PHP version */
         printf(
             __('ComingSooner requires PHP 8.0 or higher. Your server is running PHP %s.', 'coming-sooner'),
             PHP_VERSION
