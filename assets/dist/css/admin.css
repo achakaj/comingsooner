@@ -1,1 +1,90 @@
-.toggle-switch-container{display:flex;align-items:center;gap:15px;margin:20px 0}.switch{position:relative;display:inline-block;width:60px;height:34px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:.4s}.slider:before{position:absolute;content:"";height:26px;width:26px;left:4px;bottom:4px;background-color:#fff;transition:.4s}input:checked+.slider{background-color:#2271b1}input:checked+.slider:before{transform:translateX(26px)}.slider.round{border-radius:34px}.slider.round:before{border-radius:50%}.template-card h3{margin:0 0 10px}.create-new-template{margin-top:30px}.template-grid{display:flex;justify-content:flex-start;flex-wrap:wrap}.template-card{text-align:center;border:1px solid #eaefef;border-radius:20px;padding:20px;width:48%;margin:1%;box-sizing:border-box}.template-card.selected{background:#eaefef}
+/*!**********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./assets/css/admin.scss ***!
+  \**********************************************************************************************************************************************************/
+/* Toggle Switch */
+.toggle-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2271b1;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Template Grid */
+.template-card h3 {
+  margin: 0 0 10px;
+}
+
+.create-new-template {
+  margin-top: 30px;
+}
+
+.template-grid {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.template-card {
+  text-align: center;
+  border: 1px solid #EAEFEF;
+  border-radius: 20px;
+  padding: 20px;
+  width: 48%;
+  margin: 1%;
+  box-sizing: border-box;
+}
+
+.template-card.selected {
+  background: #EAEFEF;
+}

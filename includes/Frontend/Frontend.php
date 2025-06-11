@@ -28,16 +28,27 @@ class Frontend {
         return true;
     }
 
-    private function render_coming_soon_page(): void {
-        $template_id = get_option('coming_sooner_template', 'default');
-        $template_type = get_option('coming_sooner_template_type', 'default');
+private function render_coming_soon_page(): void {
+    $template_id = get_option('coming_sooner_template', 'default');
+    $template_type = get_option('coming_sooner_template_type', 'default');
 
-        if ($template_type === 'elementor' && class_exists('\Elementor\Plugin')) {
-            $this->render_elementor_template($template_id);
+    // If using Elementor
+    if ($template_type === 'elementor' && class_exists('\Elementor\Plugin')) {
+
+        // Check if the template_id is numeric before passing to the function
+        if (is_numeric($template_id)) {
+            $this->render_elementor_template((int)$template_id);
         } else {
-            $this->render_default_template($template_id);
+            // Fallback or error message
+            status_header(503);
+            echo '<h1>Coming Soon</h1><p>Invalid template ID. Select or create a new one.</p>';
         }
+
+    } else {
+        $this->render_default_template($template_id);
     }
+}
+
 
     private function render_default_template(string $template_id): void {
         $template_file = COMING_SOONER_PLUGIN_DIR . "includes/Templates/{$template_id}.php";
@@ -53,6 +64,7 @@ class Frontend {
 
 
     private function render_elementor_template(int $template_id): void {
+
     if (class_exists('\Elementor\Plugin')) {
         status_header(503);
 

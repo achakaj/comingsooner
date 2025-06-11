@@ -158,13 +158,14 @@ class Admin {
 
             <!-- Promo / Service Offer Card -->
             <div class="card promo-card">
-                <h2>🚀 Need Help Building or Maintaining Your Website?</h2>
-                <p>If you’d like a professional to build your website, or need help with website maintenance, I’m here for you!</p>
-                <a href="mailto:achakaj.abdellah@gmail.com.com?subject=Website%20Help%20Request" class="button button-primary">
-                    Contact Me
+                <h2>🚀 <?php _e( 'Need Help Building or Maintaining Your Website?', 'coming-sooner' ); ?></h2>
+                <p><?php _e( 'If you’d like a professional to build your website, or need help with website maintenance, I’m here for you!', 'coming-sooner' ); ?></p>
+                <a href="mailto:achakaj.abdellah@gmail.com?subject=Website%20Help%20Request" class="button button-primary">
+                    <?php _e( 'Contact Me', 'coming-sooner' ); ?>
                 </a>
-                <p class="description">Fast, reliable, and tailored to your needs.</p>
+                <p class="description"><?php _e( 'Fast, reliable, and tailored to your needs.', 'coming-sooner' ); ?></p>
             </div>
+
 
         </div>
         <?php

@@ -12,5 +12,5 @@ status_header(503);
     <title><?php bloginfo('name'); ?> | Coming Soon</title>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('cs-default-template'); ?>>
 
